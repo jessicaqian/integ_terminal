@@ -1,0 +1,394 @@
+﻿{% extends "system/base.html" %}
+
+{% load static %}
+
+{% block title %}设备状态{% endblock %}
+
+{% block css %}
+<link href="{% static  "system/css/main.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="row sparse"><label class="head">主页&nbsp&nbsp&nbsp&nbsp</label></div>
+    <div class="row" id="system">
+        <div class="col-md-5" >
+            <div class="row tips">
+                <label>系统状态</label>
+            </div>
+            <div class="row1 row" >
+                <div class="col-md-12">
+                    当前存储音频格式:<label id="a_mode">{{ type }}</label>
+
+                </div>
+            </div>
+            <div class="row1 row">
+                <div class="col-md-12">
+                    当前用户:<label>{{ name }}:{{ permiss }}</label>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7" id="disk">
+            <div class="row tips">
+                <label>服务器状态</label>
+            </div>
+            <div class="row1 row">
+                <div class="col-md-4">
+                    CPU使用率:&nbsp&nbsp&nbsp&nbsp<label class="disk-info" id="cpu">获取中...</label>
+                </div>
+                <div class="col-md-8">
+                    内存使用率:&nbsp&nbsp&nbsp<label class="disk-info" id="memory">获取中...</label>
+                </div>
+            </div>
+            <div class="row1 row">
+                <div class="col-md-11">
+                    磁盘剩余空间:&nbsp<label class="disk-info" id="space">获取中...</label>
+                    <span id="warntip" style="display:inline;">磁盘剩余空间不足</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+{% for channel in channels %}
+    $('label#c{{ forloop.counter }}_name').html(':{{ channel }}')
+{% endfor %}
+
+    var no = 0
+    var intervalarr = []
+
+{% for r_statu in r_status %}
+    if ('{{ r_statu }}' == 'on'){
+        start('{{ forloop.counter }}')
+        intervalarr[{{ forloop.counter }}] =  setInterval(showval,300,'{{ forloop.counter }}')
+    }else if('{{ r_statu }}' == 'off'){
+        stop('{{ forloop.counter }}')
+        clearInterval(intervalarr[{{ forloop.counter }}])
+
+    }
+
+{% endfor %}
+
+    function wait(str) {
+        $('#' + str +'>span').attr('class','glyphicon glyphicon-option-horizontal')
+        $('#' + str).attr('disabled','disabled')
+
+    }
+
+    function re_w(str,act) {
+        if(act == 'record'){
+            $('#'+str).attr('class','btn btn-danger record')
+        }else {
+            $('#'+str).attr('class','btn btn-default stop')
+
+        }
+
+        $('#' + str +'>span').attr('class','glyphicon glyphicon-'+act)
+        $('#' + str).removeAttr('disabled')
+    }
+
+    function start(str) {
+        $('#'+str).removeAttr('disabled')
+        $('#'+str).attr('class','btn btn-default stop')
+        $('#'+str+'>span').attr('class','glyphicon glyphicon-stop')
+        $('#progress'+str).attr('style','display:block')
+
+
+    }
+
+    function stop(str) {
+
+        $('#'+str).removeAttr('disabled')
+        $('#'+str).attr('class','btn btn-danger record')
+        $('#'+str+'>span').attr('class','glyphicon glyphicon-record')
+        $('#progress'+str).attr('style','display:none')
+
+    }
+
+    function showbar(val,no){
+        if(parseInt(val)<=34){
+            $('#green'+no).attr('style','width:'+val+'%')
+            $('#yellow'+no).attr('style','width:0%')
+            $('#red'+no).attr('style','width:0%')
+        }else if(parseInt(val)>34&&parseInt(val)<=67){
+            $('#green'+no).attr('style','width:34%')
+            var y_no = parseInt(val) - 34
+            $('#yellow'+no).attr('style','width:'+y_no+'%')
+            $('#red'+no).attr('style','width:0%')
+
+        }else {
+            $('#green'+no).attr('style','width:34%')
+            var r_no = parseInt(val) - 67
+            $('#yellow'+no).attr('style','width:33%')
+            $('#red'+no).attr('style','width:'+r_no+'%')
+
+        }
+
+    }
+
+    function showval(id){
+
+        $.post('getval',{'no':id}).done(function (info) {
+            if(info.msg == "OK"){
+                //console.log(Math.floor(Math.random()*100+1))
+                console.log(info.val)
+                showbar(info.val,id)
+
+            }
+        }).fail(function () {
+
+        })
+    }
+
+    $('a.btn').click(function () {
+
+        var id = $(this).attr('id')
+        var mark = $(this).attr('class')
+        wait(id)
+
+        if(mark == 'btn btn-danger record'){
+            var data = {'MSG_TYPE':'STARTRECORD','CHANNELINDEX':id}
+            var jsonstr = JSON.stringify(data)
+
+            $.post('btnAction',{'mes':jsonstr}).done(function (info) {
+
+
+                if(info.msg == 'success'){
+
+    	            $.post('recordStatus',{'no':id,'act':'on'}).done(function () {
+                        start(id)
+                        intervalarr[id] =  setInterval(showval,300,id)
+                    }).fail(function (info) {
+
+
+                	})
+
+                }else {
+                    re_w(id,'record')
+                }
+
+
+            }).fail(function (info) {
+
+
+            })
+
+            var timestamp = Date.parse(new Date());
+            var timestamp = timestamp / 1000;
+            var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1):date.getMonth()+1) + '-';
+            var D = (date.getDate()< 10 ? '0'+date.getDate():date.getDate());
+            var h = (date.getHours() < 10 ? '0'+date.getHours():date.getHours())+ ':';
+            var m = (date.getMinutes() < 10 ? '0'+date.getMinutes():date.getMinutes())+":";
+            var s = (date.getSeconds()< 10 ? '0'+date.getSeconds():date.getSeconds())
+            var time = Y+M+D+" "+h+m+s;
+            var dict = {"name":"{{ name }}","start_time":time,"channel_no":"1","channel_name":"{{ channel1 }}"}
+
+            var json_dict = JSON.stringify(dict)
+            $.post('free_log',{"mes":json_dict}).done(function (info) {
+
+
+            }).fail(function () {
+
+            })
+        }
+        else {
+
+            var data = {'MSG_TYPE':'STOPRECORD','CHANNELINDEX':id}
+            var jsonstr = JSON.stringify(data);
+            $.post('btnAction',{'mes':jsonstr}).done(function (info) {
+
+                if(info.msg == 'success'){
+                   
+                $.post('recordStatus',{'no':id,'act':'off'}).done(function () {
+                    stop(id)
+                    clearInterval(intervalarr[id])
+
+
+
+                }).fail(function () {
+
+                })
+                }else {
+                    re_w(id,'stop')
+                }
+
+
+            }).fail(function () {
+
+            })
+            var timestamp = Date.parse(new Date());
+            var timestamp = timestamp / 1000;
+            var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1):date.getMonth()+1) + '-';
+            var D = (date.getDate()< 10 ? '0'+date.getDate():date.getDate());
+            var h = (date.getHours() < 10 ? '0'+date.getHours():date.getHours())+ ':';
+            var m = (date.getMinutes() < 10 ? '0'+date.getMinutes():date.getMinutes())+":";
+            var s = (date.getSeconds()< 10 ? '0'+date.getSeconds():date.getSeconds())
+            var time = Y+M+D+" "+h+m+s
+            var dict = {"end_time":time,"channel_no":"1","channel_name":"{{ channel1 }}","name":"{{ name }}"}
+
+            var json_dict = JSON.stringify(dict)
+            $.post('free_log',{"mes":json_dict}).done(function (info) {
+
+
+            }).fail(function () {
+
+            })
+        }
+    })
+
+    $('#startall').click(function () {
+        $('a.btn>span').attr('class','glyphicon glyphicon-option-horizontal')
+        $('a.btn').attr('disabled','disabled')
+        var data = {'MSG_TYPE':'STARTRECORD','CHANNELINDEX':'ALL'}
+        var jsonstr = JSON.stringify(data);
+
+        $.post('btnAction',{'mes':jsonstr}).done(function (info) {
+
+            if(info.msg == 'success'){
+
+                $.post('recordStatus',{'no':'100','act':'on'}).done(function (info) {
+                    $('a.btn').removeAttr('disabled')
+                    $('a.btn').attr('class','btn btn-default stop')
+                    $('a.btn>span').attr('class','glyphicon glyphicon-stop')
+                    $('div.progress').attr('style','display:block')
+                    for(var i=1;i<33;i++){
+                        if(intervalarr[i]==null){
+                            intervalarr[i]=setInterval(showval,300,i)
+
+                        }
+
+                    }
+
+                }).fail(function (info) {
+
+
+                })
+
+
+
+
+            }else {
+                $('a.btn').removeAttr('disabled')
+                $('a.btn').attr('class','btn btn-danger record')
+                $('a.btn>span').attr('class','glyphicon glyphicon-record')
+
+            }
+
+
+        }).fail(function () {
+            $('a.btn').removeAttr('disabled')
+            $('a.btn').attr('class','btn btn-danger record')
+            $('a.btn>span').attr('class','glyphicon glyphicon-record')
+
+        })
+
+    })
+
+    $('#stopall').click(function () {
+
+
+        $('a.btn>span').attr('class','glyphicon glyphicon-option-horizontal')
+        $('a.btn').attr('disabled','disabled')
+        var data = {'MSG_TYPE':'STOPRECORD','CHANNELINDEX':'ALL'}
+        var jsonstr = JSON.stringify(data);
+
+        $.post('btnAction',{'mes':jsonstr}).done(function (info) {
+
+            if(info.msg == 'success'){
+
+                $.post('recordStatus',{'no':'100','act':'off'}).done(function () {
+                    $('a.btn').removeAttr('disabled')
+                    $('a.btn').attr('class','btn btn-danger record')
+                    $('a.btn>span').attr('class','glyphicon glyphicon-record')
+                    $('div.progress').attr('style','display:none')
+                    for(var i=1;i<33;i++){
+                        clearInterval(intervalarr[i])
+
+                    }
+                intervalarr = []
+
+
+                }).fail(function () {
+
+                })
+
+
+
+            }else {
+                $('a.btn').removeAttr('disabled')
+                $('a.btn').attr('class','btn btn-default stop')
+                $('a.btn>span').attr('class','glyphicon glyphicon-stop')
+
+            }
+
+
+        }).fail(function () {
+            $('a.btn').removeAttr('disabled')
+            $('a.btn').attr('class','btn btn-default stop')
+            $('a.btn>span').attr('class','glyphicon glyphicon-stop')
+
+        })
+
+    })
+
+    function shine() {
+        var mark = $('label#space').attr('class')
+        if(mark == 'disk-info-warn'){
+            $('label#space').attr('class','disk-info-warn1')
+
+        }else{
+            $('label#space').attr('class','disk-info-warn')
+        }
+    }
+
+    var shinelight
+
+    function getdiskStatus(){
+        $.get('getdiskStatus').done(function (info) {
+            if(no == info.no){
+
+            }else{
+                $('label#space').html(info.no + 'G')
+                no = info.no
+                if(no<{{ diskwarn }}){
+                    shinelight = setInterval(shine,500)
+                    $('#warntip').attr('style','display:inline;')
+                }else {
+                    clearInterval(shinelight)
+                    $('label#space').attr('class','disk-info')
+                    $('#warntip').attr('style','display:none;')
+                }
+            }
+        }).fail(function () {
+
+        })
+    }
+
+    function getServerStatus(){
+        $.get('getServerStatus').done(function (info) {
+            if(info.serverInfo !== null){
+                $('label#cpu').html(info.serverInfo.cpu_usage);
+                $('label#memory').html(info.serverInfo.mem_usage);
+            }
+        }).fail(function () {
+
+        })
+    }
+    getServerStatus();
+    setInterval(getServerStatus, 3000);
+    getdiskStatus();
+    setInterval(getdiskStatus, 30000);
+
+</script>
+{% endblock %}
+

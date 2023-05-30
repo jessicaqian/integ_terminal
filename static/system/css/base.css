@@ -1,0 +1,135 @@
+div#title{
+    height:70px;
+    background-color:#25425f ;
+    background-size: 100% 10%;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 25px;
+    padding: 15px;
+    text-align: right;
+
+}
+
+li.nav_bar{
+
+    margin-bottom: 10px;
+
+
+}
+
+li.nav_bar>a{
+    font-size: 16px;
+    color: #eeeeee;
+    padding-left: 30px;
+}
+
+li.nav_bar>a:hover{
+
+    color: white;
+    background-color:#0189bc ;
+}
+
+li.nav_bar>a:focus{
+
+    color: white;
+    background-color: #0189bc;
+}
+
+
+
+
+li.nav_bar_inner{
+    text-align: left;
+    font-size: 13px;
+}
+
+li.nav_bar_inner > a{
+    padding-left: 60px;
+    color: #e7e7e7;
+
+
+}
+
+li.nav_bar_inner > a:hover{
+
+    color: white;
+
+    background-color:#25425f ;
+
+}
+
+label.head{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 20px;
+    border-bottom: solid 2px #79aec8;
+
+}
+
+table.table-hover > tbody > tr:hover {
+    background-color: #d0dfea;
+}
+
+div.sparse{
+    margin-bottom: 25px;
+}
+
+div.sparse_min{
+    margin-bottom: 20px;
+}
+
+
+span.red{
+    color: red;
+}
+
+input.single_line{
+    border-top:0px;
+    border-left:0px;
+    border-right:0px ;
+    border-bottom:solid 1px #636b72;
+
+}
+
+div.modal-dialog{
+    margin-top: 120px;
+}
+
+div.tips{
+    margin: 0px 26px;
+    border-left:solid #337ab7 8px;
+    padding:0px 15px;
+    font-size: 15px;
+}
+
+div#navbar{
+    background-color: #336284;
+    padding: 0;
+    height: 100%;
+
+
+}
+
+div#nav_bar a{
+    background-color: #336284;
+}
+
+div#logo{
+    height: 70px;
+    background: url("../image/logo1.png") top left fixed no-repeat;
+
+
+}
+
+html,body{
+    height: 100%;
+}
+
+.container-fluid{
+    height: 100%;
+}
+
+div#main{
+    height: 100%;
+
+}
