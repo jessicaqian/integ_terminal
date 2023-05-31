@@ -1,15 +1,15 @@
-﻿{% extends "system/base.html" %}
+{% extends "system/base.html" %}
 
 {% load static %}
 
 {% block title %}设备状态{% endblock %}
 
 {% block css %}
-<link href="{% static  "system/css/main.css" %}" rel="stylesheet">
+<link href="{% static  "system/css/audioconfig.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <div class="row sparse"><label class="head">主页&nbsp&nbsp&nbsp&nbsp</label></div>
+    <div class="row sparse"><label class="head">音频配置&nbsp&nbsp&nbsp&nbsp</label></div>
     <div class="row" id="system">
         <div class="col-md-5" >
             <div class="row tips">
@@ -56,6 +56,8 @@
 
 {% block js %}
 <script type="text/javascript">
+    $('a#flow').attr('aria-expanded','true');
+    $('div#collapseExample').attr('class','collapse in');
 
 
 </script>

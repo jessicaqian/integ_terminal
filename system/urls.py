@@ -5,5 +5,7 @@ app_name ='system'
 
 urlpatterns = [
     path('main.html', views.main),
+    path('audioconfig.html', views.audioConfig),
+    path('videoconfig.html', views.videoConfig),
 
 ]
