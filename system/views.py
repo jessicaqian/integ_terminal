@@ -26,3 +26,26 @@ def videoConfig(request):
 
         return render(request, 'system/videoconfig.html', {})
 
+def meetControl(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/meetcontrol.html', {})
+
+def netconfig(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/netconfig.html', {})
+
+def uiDisplay(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/UIdisplay.html', {})

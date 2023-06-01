@@ -13,6 +13,10 @@ img#san1{
     display: block;
 }
 
+img#san2{
+    display: none;
+}
+
 a#videoconfig{
     color: white;
     background-color:#25425f ;

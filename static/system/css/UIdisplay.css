@@ -1,4 +1,4 @@
-li#dev_config>a{
+li#sys_config>a{
     background-color:#0189bc;
     color: white;
     padding-right: 0;
@@ -8,16 +8,16 @@ img#san{
     display: none;
 }
 
-img#san1{
+img#san2{
     float: right;
     display: block;
 }
 
-img#san2{
+img#san1{
     display: none;
 }
 
-a#audioconfig{
+a#UI_display{
     color: white;
     background-color:#25425f ;
 }

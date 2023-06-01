@@ -49,19 +49,19 @@
                         </ul>
                     </div>
                 </li>
-                <li role="presentation" class="nav_bar" id="usr">
-                    <a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统配置</a>
+                <li role="presentation" class="nav_bar" id="sys_config">
+                    <a id="flow1" role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统配置 <img id="san2" src="../../static/system/image/cion.png"></a>
                     <div class="collapse" id="collapseExample1">
                         <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation" class="nav_bar_inner" id="meet">
-                                <a href="sysconfig.html?name={{ name }}&permiss={{ permiss }}">会议参数</a>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="meetcontrol.html?name={{ name }}&permiss={{ permiss }}" id="meet">会议参数</a>
                             </li>
-                            <li role="presentation" class="nav_bar_inner" id="net_config">
-                                <a href="fileconfig.html?name={{ name }}&permiss={{ permiss }}">网络设置</a>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="netconfig.html?name={{ name }}&permiss={{ permiss }}" id="net_config">网络设置</a>
                             </li>
-                            <li role="presentation" class="nav_bar_inner" id="menu_ui">
-                                <a href="fileconfig.html?name={{ name }}&permiss={{ permiss }}">界面显示</a>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">界面显示</a>
                             </li>
                         </ul>
                     </div>
