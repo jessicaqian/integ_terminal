@@ -4,17 +4,9 @@ li#dev_config>a{
     padding-right: 0;
 }
 
-img#san{
-    display: none;
-}
-
 img#san1{
     float: right;
     display: block;
-}
-
-img#san2{
-    display: none;
 }
 
 a#videoconfig{

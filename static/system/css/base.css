@@ -96,7 +96,7 @@ div.modal-dialog{
 }
 
 div.tips{
-    margin: 0px 26px;
+    margin: 0px 26px 30px 26px;
     border-left:solid #337ab7 8px;
     padding:0px 15px;
     font-size: 15px;
@@ -155,4 +155,8 @@ img#net{
 
 a#logout{
     margin-right: 5px;
+}
+
+img.triangle{
+    display: none;
 }

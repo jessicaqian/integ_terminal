@@ -1,0 +1,49 @@
+div#meetcontrol{
+    height: 180px;
+    border-bottom: #e2e2e2 1px solid;
+    margin-bottom: 20px;
+
+}
+
+div.row1{
+    margin: 30px 0 0 30px;
+    line-height: 30px;
+    font-size: 15px;
+
+}
+
+li#meet>a{
+    background-color:#0189bc;
+    color: white;
+    padding-right: 0;
+}
+
+img#san3{
+    float: right;
+    display: block;
+}
+
+
+input#id_phoneNo{
+
+
+    padding-left: 12px;
+}
+
+button.meetbutton{
+
+    width: 130px;
+}
+
+div#meetbtn{
+    margin-top: 30px;
+    text-align: center;
+    margin-left: -8%;
+}
+
+select{
+    width: 50%;
+    height: 30px;
+}
+
+

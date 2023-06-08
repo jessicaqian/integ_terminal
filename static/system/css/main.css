@@ -1,8 +1,7 @@
-div#system{
-    height: 180px;
-    border-bottom: #a9a9a9 1px solid;
-    margin-bottom: 20px;
-
+div.separation{
+    height: 80px;
+    border-right: #e2e2e2 1px solid;
+    font-size: 15px;
 }
 
 div.row1{
@@ -12,83 +11,10 @@ div.row1{
 
 }
 
-label.disk-info{
-    padding: 0 8px;
-    background-color: #5cb85c;
-    color: white;
-    border-radius: 4px;
-}
-
-label.disk-info-warn{
-    padding: 0 8px;
-    background-color:#c9302c;
-    color: white;
-    border-radius: 4px;
-}
-
-label.disk-info-warn1{
-    padding: 0 8px;
-    background-color:white;
-    color:#c9302c;
-    border-radius: 4px;
-}
-
-
-
-div.channel{
-    height: 55px;
-    margin-top: 30px;
-    margin-right: 1px;
-    background-color: #cecece;
-    border-radius: 6px;
-}
-
-
-
-div.channel_in_off{
-    margin-left: 5px;
-    height: 20px;
-    background-color: #e3e3e3;
-    /*background-size: 50%;*/
-    border-radius: 4px;
-}
-
-div.progress{
-    background-color: white;
-}
-
-a.record,a.stop{
-    margin-top: 13px;
-    height: 30px;
-    width: 30px;
-    padding: 3px 5px;
-    font-size: 16px;
-}
-
-.btn[disabled]{
-    background-color: #a9a9a9;
-}
-
-.btn[disabled]:hover{
-    background-color: #a9a9a9;
-}
-
 li#main>a{
     background-color:#0189bc;
     color: white;
     padding-right: 0;
-}
-
-div#buttom{
-    margin-bottom: 10px;
-}
-
-button.all{
-    margin-left: 45px;
-}
-
-span#warntip{
-    color:#c9302c ;
 }
 
 img#san{
@@ -96,12 +22,36 @@ img#san{
     display: block;
 }
 
-img#san1{
+div#meetinfo{
+    margin-left: 0px;
+    padding-bottom: 40px;
+    border-bottom: #e2e2e2 1px solid;
+}
+
+div.info{
+    margin-top: 15px;
+}
+
+button#connected{
     display: none;
 }
 
-img#san2{
+button#sigin{
     display: none;
 }
+
+button#connected,#unconnect,#sigin,#unsigin{
+
+    pointer-events: none;
+}
+
+div#video{
+    padding-top: 30px;
+}
+
+
+
+
+
 
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import MeetcontrolForm
 
 # Create your views here.
 def main(request):
@@ -8,7 +9,17 @@ def main(request):
 
     else:
 
-        return render(request, 'system/main.html', {})
+        return render(request, 'system/main.html')
+
+def meet(request):
+    if request.method == 'POST':
+        pass
+
+
+    else:
+        form = MeetcontrolForm()
+
+        return render(request, 'system/meet.html', {'form': form})
 
 def audioConfig(request):
     if request.method == 'POST':

@@ -1,0 +1,60 @@
+{% extends "system/base.html" %}
+
+{% load static %}
+
+{% block title %}会议{% endblock %}
+
+{% block css %}
+<link href="{% static  "system/css/meet.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="row sparse"><label class="head">会议&nbsp&nbsp&nbsp&nbsp</label></div>
+    <div class="row" id="meetcontrol">
+
+            <div class="row tips">
+                <label>会议控制</label>
+            </div>
+            <div class="row1 row" >
+                <div class="col-md-3">
+                    {{ form.phoneNo.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    {{ form.phoneNo }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.bandwidth.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    {{ form.bandwidth }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.calltype.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    {{ form.calltype }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.protocol.label_tag }}&nbsp&nbsp&nbsp&nbsp
+                    {{ form.protocol }}
+                </div>
+            </div>
+            <div class="row" id="meetbtn">
+                <button  class="btn btn-default meetbutton"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 呼叫</button>
+                <button  class="btn btn-default meetbutton"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 挂断</button>
+
+            </div>
+
+    </div>
+    <div class="row">
+        <div class="row tips">
+            <label>通话记录</label>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+
+</script>
+{% endblock %}
+

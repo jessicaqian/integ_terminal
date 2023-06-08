@@ -5,6 +5,7 @@ app_name ='system'
 
 urlpatterns = [
     path('main.html', views.main),
+    path('meet.html', views.meet),
     path('audioconfig.html', views.audioConfig),
     path('videoconfig.html', views.videoConfig),
     path('meetcontrol.html', views.meetControl),

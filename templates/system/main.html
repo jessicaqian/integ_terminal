@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}设备状态{% endblock %}
+{% block title %}主页{% endblock %}
 
 {% block css %}
 <link href="{% static  "system/css/main.css" %}" rel="stylesheet">
@@ -10,43 +10,49 @@
 
 {% block content %}
     <div class="row sparse"><label class="head">主页&nbsp&nbsp&nbsp&nbsp</label></div>
-    <div class="row" id="system">
-        <div class="col-md-5" >
-            <div class="row tips">
-                <label>系统状态</label>
-            </div>
-            <div class="row1 row" >
-                <div class="col-md-12">
-                    当前存储音频格式:<label id="a_mode">{{ type }}</label>
-
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-12">
-                    当前用户:<label>{{ name }}:{{ permiss }}</label>
-
-                </div>
+    <div class="row" >
+        <div class="row tips">
+            <label>会场信息</label>
+        </div>
+    </div>
+    <div class="row" id="meetinfo">
+        <div class="col-md-3 separation">
+            <div>会场名称</div>
+            <div class="info">
+                <label>会场一</label>
             </div>
 
         </div>
-        <div class="col-md-7" id="disk">
-            <div class="row tips">
-                <label>服务器状态</label>
+        <div class="col-md-3 separation">
+            <div>H323号码</div>
+            <div class="info">
+                <label>0000000</label>
             </div>
-            <div class="row1 row">
-                <div class="col-md-4">
-                    CPU使用率:&nbsp&nbsp&nbsp&nbsp<label class="disk-info" id="cpu">获取中...</label>
-                </div>
-                <div class="col-md-8">
-                    内存使用率:&nbsp&nbsp&nbsp<label class="disk-info" id="memory">获取中...</label>
-                </div>
+
+        </div>
+        <div class="col-md-3 separation">
+            <div >综合会议管理平台</div>
+            <div class="info">
+                <button  class="btn btn-danger" id="unconnect"> 未连接</button>
+                <button  class="btn btn-success" id="connected"> 已连接</button>
+
             </div>
-            <div class="row1 row">
-                <div class="col-md-11">
-                    磁盘剩余空间:&nbsp<label class="disk-info" id="space">获取中...</label>
-                    <span id="warntip" style="display:inline;">磁盘剩余空间不足</span>
-                </div>
+        </div>
+        <div class="col-md-3 separation">
+            <div>GK注册状态</div>
+            <div class="info">
+                <button  class="btn btn-danger" id="unsigin"> 未注册</button>
+                <button  class="btn btn-success" id="sigin"> 已注册</button>
+
             </div>
+        </div>
+    </div>
+    <div class="row" id="video">
+        <div class="row tips">
+            <label>会场</label>
+        </div>
+        <div>
+
         </div>
     </div>
 
