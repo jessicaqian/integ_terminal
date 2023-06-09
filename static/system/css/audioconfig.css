@@ -14,3 +14,16 @@ a#audioconfig{
     color: white;
     background-color:#25425f ;
 }
+
+ .LargeClass {
+    font-family: Arial;
+    font-size: large;
+    font-weight: bold;
+    color: Red;
+ }
+ .NormalClass {
+    font-family: Arial;
+    font-size: small;
+    font-weight: bold;
+    color: Blue;
+ }
