@@ -10,45 +10,66 @@
 
 {% block content %}
     <div class="row sparse"><label class="head">音频配置&nbsp&nbsp&nbsp&nbsp</label></div>
-    <div class="row" id="system">
-        <div class="col-md-5" >
-            <div class="row tips">
-                <label>系统状态</label>
-            </div>
-            <div class="row1 row" >
-                <div class="col-md-12">
-                    当前存储音频格式:<label id="a_mode">{{ type }}</label>
 
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-12">
-                    当前用户:<label>{{ name }}:{{ permiss }}</label>
-
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-7" id="disk">
-            <div class="row tips">
-                <label>服务器状态</label>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-4">
-                    CPU使用率:&nbsp&nbsp&nbsp&nbsp<label class="disk-info" id="cpu">获取中...</label>
-                </div>
-                <div class="col-md-8">
-                    内存使用率:&nbsp&nbsp&nbsp<label class="disk-info" id="memory">获取中...</label>
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-11">
-                    磁盘剩余空间:&nbsp<label class="disk-info" id="space">获取中...</label>
-                    <span id="warntip" style="display:inline;">磁盘剩余空间不足</span>
-                </div>
-            </div>
+    <div class="row">
+        <div class="row tips">
+            <label>音频输入接口</label>
         </div>
     </div>
+    <div class="row">
+        <div class = "NormalClass col-md-2">
+            <input type = "button" id = "btnSwitch">
+        </div>
+        <div class = "col-md-2">
+            <label id="textin" class="off">关闭</label>
+        </div>
+    </div>
+    <div class="row bar" >
+        <div class="row tips">
+            <label>音频输出接口</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "NormalClass-out col-md-2">
+            <input type = "button" id = "btnSwitchout">
+        </div>
+        <div class = "col-md-2">
+            <label id="textout" class="off-out">关闭</label>
+        </div>
+    </div>
+    <div class="row bar" >
+        <div class="row tips">
+            <label>音频输入音量</label>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
+            <div id="slider"></div>
+        </div>
+        <div class="col-md-6">
+            <label id = "volin" >35</label>
+        </div>
+    </div>
+    <div class="row bar" >
+        <div class="row tips">
+            <label>音频输出音量</label>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
+            <div id="slider1"></div>
+        </div>
+        <div class="col-md-6">
+            <label id = "volout" >25</label>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
 
 
@@ -59,6 +80,68 @@
     $('a#flow').attr('aria-expanded','true');
     $('div#collapseExample').attr('class','collapse in');
 
+    $(function() {
+        $('#btnSwitch').click(function() {
+           $(".NormalClass").switchClass("NormalClass","LargeClass",'fast');
+           $(".LargeClass").switchClass("LargeClass","NormalClass",'fast');
+           $("label.off").switchClass("off","on",'fast');
+           $("label.on").switchClass("on","off",'fast');
+           var text = document.getElementById('textin').innerHTML;
+
+           if(text === '打开'){
+               document.getElementById('textin').innerHTML = '关闭'
+
+           }else {
+               document.getElementById('textin').innerHTML = '打开'
+
+           }
+           return false;
+        });
+    });
+
+    $(function() {
+        $('#btnSwitchout').click(function() {
+           $(".NormalClass-out").switchClass("NormalClass-out","LargeClass-out",'fast');
+           $(".LargeClass-out").switchClass("LargeClass-out","NormalClass-out",'fast');
+           $("label.off-out").switchClass("off-out","on-out",'fast');
+           $("label.on-out").switchClass("on-out","off-out",'fast');
+           var text = document.getElementById('textout').innerHTML;
+
+           if(text === '打开'){
+               document.getElementById('textout').innerHTML = '关闭'
+
+           }else {
+               document.getElementById('textout').innerHTML = '打开'
+
+           }
+           return false;
+        });
+    });
+
+
+$(function() {
+	var slider = $('#slider');
+	slider.slider({
+		range: "min",
+		min: 1,
+		value: 35,
+        slide: function( event, ui ) {
+		    document.getElementById('volin').innerHTML = ui.value
+        }
+	});
+});
+
+$(function() {
+	var slider = $('#slider1');
+	slider.slider({
+		range: "min",
+		min: 1,
+		value: 25,
+        slide: function( event, ui ) {
+		    document.getElementById('volout').innerHTML = ui.value
+        }
+	});
+});
 
 </script>
 {% endblock %}
