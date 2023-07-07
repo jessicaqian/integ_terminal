@@ -68,6 +68,12 @@
                             <li role="presentation" class="nav_bar_inner" >
                                 <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">界面显示</a>
                             </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">日期时间</a>
+                            </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">安全保密</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -94,9 +100,10 @@
        function heartbeat(){
 
             $.ajax({
-                type: 'GET',
+
+                type: 'POST',
                 dataType:'json',
-                url: 'heartbeat',
+                url: 'http://10.25.16.9:8090/',
                 data:{'name':'{{name}}'},
 
 
