@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from .forms import MeetcontrolForm
+from django.http import JsonResponse
+import requests
+import json
+
 
 # Create your views here.
 def main(request):
@@ -60,3 +64,22 @@ def uiDisplay(request):
     else:
 
         return render(request, 'system/UIdisplay.html', {})
+
+def test(request):
+    if request.method == 'POST':
+        data = request.POST['IntegratedTerminal']
+        val = json.loads(data)
+
+        print(val['method'])
+        print(val['data']['message'])
+        return JsonResponse({'code': 200})
+    else:
+
+        try:
+            url = 'http://10.25.16.9:8090'
+            payload = {'method':'double auth','data':{'port':8090,'ip':'10.25.16.9','pin':'123456'}}
+            res = requests.post(url,data=json.dumps(payload))
+            print(res)
+        except Exception as e:
+            print(e)
+        return JsonResponse({'code': 200})

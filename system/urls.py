@@ -11,4 +11,5 @@ urlpatterns = [
     path('meetcontrol.html', views.meetControl),
     path('netconfig.html', views.netconfig),
     path('UIdisplay.html', views.uiDisplay),
+    path('test', views.test),
 ]

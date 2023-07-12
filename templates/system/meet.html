@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="row" id="meetbtn">
-                <button  class="btn btn-default meetbutton"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 呼叫</button>
+                <button  class="btn btn-default meetbutton" id="call"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 呼叫</button>
                 <button  class="btn btn-default meetbutton"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 挂断</button>
 
             </div>
@@ -53,6 +53,14 @@
 
 {% block js %}
 <script type="text/javascript">
+$('#call').click(function () {
+    $.get('test').done(function (info) {
+
+    }).fail(function () {
+
+    })
+
+})
 
 
 </script>

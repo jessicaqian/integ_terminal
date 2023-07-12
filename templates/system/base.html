@@ -97,24 +97,7 @@
 
 {% block js %}{% endblock %}
 <script type="text/javascript">
-       function heartbeat(){
 
-            $.ajax({
-
-                type: 'POST',
-                dataType:'json',
-                url: 'http://10.25.16.9:8090/',
-                data:{'name':'{{name}}'},
-
-
-              success: function(result) {
-                console.log(result.msg)
-              },
-
-
-            })
-    }
-    setInterval(heartbeat,5000)
 </script>
 </body>
 </html>
