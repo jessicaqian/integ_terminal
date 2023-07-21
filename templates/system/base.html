@@ -40,20 +40,7 @@
                 <li role="presentation" class="nav_bar" id="meet"><a href="meet.html?name={{ name }}&permiss={{ permiss }}">
                     <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> 会议 <img class="triangle" id="san3" src="../../static/system/image/cion.png">     </a>
                 </li>
-                <li role="presentation" class="nav_bar" id="dev_config">
-                    <a id="flow" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 设备配置 <img class="triangle" id="san1" src="../../static/system/image/cion.png"></a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation" class="nav_bar_inner" >
-                                <a href="audioconfig.html?name={{ name }}&permiss={{ permiss }}" id="audioconfig">音频配置</a>
-                            </li>
-                            <li role="presentation" class="nav_bar_inner" >
-                                <a href="videoconfig.html?name={{ name }}&permiss={{ permiss }}" id="videoconfig">视频配置</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+
                 <li role="presentation" class="nav_bar" id="sys_config">
                     <a id="flow1" role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统配置 <img class="triangle" id="san2" src="../../static/system/image/cion.png"></a>
@@ -69,15 +56,37 @@
                                 <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">界面显示</a>
                             </li>
                             <li role="presentation" class="nav_bar_inner" >
-                                <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">日期时间</a>
+                                <a href="time.html?name={{ name }}&permiss={{ permiss }}" id="time">日期时间</a>
                             </li>
                             <li role="presentation" class="nav_bar_inner" >
-                                <a href="UIdisplay.html?name={{ name }}&permiss={{ permiss }}" id="UI_display">安全保密</a>
+                                <a href="secure.html?name={{ name }}&permiss={{ permiss }}" id="secure">安全保密</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
+                <li role="presentation" class="nav_bar" id="dev_config">
+                    <a id="flow" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> 系统维护 <img class="triangle" id="san1" src="../../static/system/image/cion.png"></a>
+                    <div class="collapse" id="collapseExample">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="version.html?name={{ name }}&permiss={{ permiss }}" id="version">版本信息</a>
+                            </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="log.html?name={{ name }}&permiss={{ permiss }}" id="log">系统日志</a>
+                            </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="interfaceControl.html?name={{ name }}&permiss={{ permiss }}" id="interfaceControl">接口控制</a>
+                            </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="sysdiagnosis.html?name={{ name }}&permiss={{ permiss }}" id="sysdiagnosis">系统诊断</a>
+                            </li>
+                            <li role="presentation" class="nav_bar_inner" >
+                                <a href="sysupdate.html" id="sysupdate">系统更新</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="col-md-10">

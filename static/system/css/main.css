@@ -4,13 +4,6 @@ div.separation{
     font-size: 15px;
 }
 
-div.row1{
-    margin: 30px 0 0 30px;
-    line-height: 30px;
-    font-size: 15px;
-
-}
-
 li#main>a{
     background-color:#0189bc;
     color: white;

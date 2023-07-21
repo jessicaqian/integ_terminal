@@ -1,0 +1,16 @@
+img#san2{
+    float: right;
+    display: block;
+
+}
+
+li#sys_config>a{
+    background-color:#0189bc;
+    color: white;
+    padding-right: 0;
+}
+
+a#time{
+    color: white;
+    background-color:#25425f ;
+}

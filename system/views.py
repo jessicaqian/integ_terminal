@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import MeetcontrolForm
+from .forms import MeetForm,MeetParameterForm,NetConfigForm
 from django.http import JsonResponse
 import requests
 import json
@@ -21,41 +21,29 @@ def meet(request):
 
 
     else:
-        form = MeetcontrolForm()
+        form = MeetForm()
 
         return render(request, 'system/meet.html', {'form': form})
 
-def audioConfig(request):
-    if request.method == 'POST':
-        pass
 
-    else:
-
-        return render(request, 'system/audioconfig.html', {})
-
-def videoConfig(request):
-    if request.method == 'POST':
-        pass
-
-    else:
-
-        return render(request, 'system/videoconfig.html', {})
 
 def meetControl(request):
     if request.method == 'POST':
         pass
 
     else:
+        form = MeetParameterForm()
 
-        return render(request, 'system/meetcontrol.html', {})
+        return render(request, 'system/meetcontrol.html', {'form': form})
 
 def netconfig(request):
     if request.method == 'POST':
         pass
 
     else:
+        form = NetConfigForm()
 
-        return render(request, 'system/netconfig.html', {})
+        return render(request, 'system/netconfig.html', {'form': form})
 
 def uiDisplay(request):
     if request.method == 'POST':
@@ -64,6 +52,64 @@ def uiDisplay(request):
     else:
 
         return render(request, 'system/UIdisplay.html', {})
+
+def time(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/time.html', {})
+
+def secure(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/secure.html', {})
+
+def version(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/version.html', {})
+
+def log(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/log.html', {})
+
+def interfaceControl(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/interfaceControl.html', {})
+
+def sysdiagnosis(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/sysdiagnosis.html', {})
+
+
+def sysUpdate(request):
+    if request.method == 'POST':
+        pass
+
+    else:
+
+        return render(request, 'system/sysupdate.html', {})
+
 
 def test(request):
     if request.method == 'POST':

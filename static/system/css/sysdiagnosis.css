@@ -1,0 +1,15 @@
+li#dev_config>a{
+    background-color:#0189bc;
+    color: white;
+    padding-right: 0;
+}
+
+img#san1{
+    float: right;
+    display: block;
+}
+
+a#sysdiagnosis{
+    color: white;
+    background-color:#25425f ;
+}
