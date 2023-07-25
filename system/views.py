@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import MeetForm,MeetParameterForm,NetConfigForm
+from .forms import MeetForm,MeetParameterForm,NetConfigForm,UIdisplayForm
 from django.http import JsonResponse
 import requests
 import json
@@ -50,8 +50,9 @@ def uiDisplay(request):
         pass
 
     else:
+        form = UIdisplayForm()
 
-        return render(request, 'system/UIdisplay.html', {})
+        return render(request, 'system/UIdisplay.html', {'form': form})
 
 def time(request):
     if request.method == 'POST':

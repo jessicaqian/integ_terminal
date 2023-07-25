@@ -3,9 +3,10 @@ from django import forms
 class MeetForm(forms.Form):
     CHOICES = (
         ("公开", "公开"),
+        ("内部", "内部"),
         ("秘密", "秘密"),
         ("机密", "机密"),
-        ("绝密", "绝密"),
+
     )
 
     CHOICES1 = (
@@ -63,3 +64,11 @@ class NetConfigForm(forms.Form):
     adress = forms.CharField(widget=forms.TextInput, required=True, label='IPv4地址')
     mask = forms.CharField(widget=forms.TextInput, required=True, label='子网掩码')
     gateway = forms.CharField(widget=forms.TextInput, required=True, label='IPv4网关')
+
+class UIdisplayForm(forms.Form):
+
+
+    UIswitch = forms.CharField(widget=forms.TextInput(attrs={'type':'button'}))
+    roomname = forms.CharField(widget=forms.TextInput, required=True, label='会场名')
+    roomlevel = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}), required=True, label='会场密级')
+

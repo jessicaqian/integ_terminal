@@ -72,3 +72,13 @@ input#id_adress,input#id_mask,input#id_gateway{
     border-radius: 25px;
 
 }
+
+#save{
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    margin-left: 0;
+
+
+}

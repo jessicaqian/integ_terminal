@@ -13,3 +13,70 @@ a#UI_display{
     color: white;
     background-color:#25425f ;
 }
+
+.LargeClass{
+     margin-top: 3px;
+     padding-top: 1px;
+     height: 25px;
+     width: 50px;
+     border-radius: 20px;
+     background-color: #0189bc;
+     padding-left: 26px;
+ }
+ .NormalClass{
+     margin-top: 3px;
+     padding-top: 1px;
+     height: 25px;
+     width: 50px;
+     border-radius: 20px;
+     background-color: #e2e2e2;
+     padding-left: 1px;
+
+ }
+
+ input#id_UIswitch{
+     background-color: white;
+     height: 23px;
+     width: 23px;
+     border-radius: 20px;
+     border: solid rgba(0,0,0,0);
+
+ }
+
+ label.off{
+     color: #989898;
+ }
+
+ label.on{
+     color: black;
+ }
+
+.ui-slider-handle{
+    border-radius: 20px;
+    outline: none;
+}
+
+#slider{
+    margin-left: 45px;
+    margin-top: 3px;
+    border-radius: 25px;
+
+}
+
+.ui-slider-range {
+    background:  #0189bc;
+    border-radius: 25px;
+
+}
+
+input#id_roomname,#id_roomlevel{
+    width: 50%;
+}
+
+#save{
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+
+}

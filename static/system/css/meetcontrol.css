@@ -74,8 +74,12 @@ a#meet{
 
 
 
-input#save{
-    margin:100px 0 0 42%;
+#save{
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
 
 
 }
+

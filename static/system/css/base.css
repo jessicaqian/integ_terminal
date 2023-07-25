@@ -129,7 +129,7 @@ html,body{
     height: 100%;
 }
 
-div#main{
+div#main,div#content{
     height: 100%;
 
 }
