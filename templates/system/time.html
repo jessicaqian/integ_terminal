@@ -10,45 +10,25 @@
 
 {% block content %}
     <div class="row sparse"><label class="head">日期时间&nbsp&nbsp&nbsp&nbsp</label></div>
-    <div class="row" id="system">
-        <div class="col-md-5" >
-            <div class="row tips">
-                <label>系统状态</label>
-            </div>
-            <div class="row1 row" >
-                <div class="col-md-12">
-                    当前存储音频格式:<label id="a_mode">{{ type }}</label>
+    <form>
+            <div class="row1 row">
+                <div class="col-md-1">
+                    <span class="warning">*</span>
+
+                    <label>时间:</label>
 
                 </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-12">
-                    当前用户:<label>{{ name }}:{{ permiss }}</label>
+                <div class="col-md-5">
+
+                    <input id="start" name="start" type="datetime-local" style="width: 50%" step="1" value={{ time }}>
 
                 </div>
-            </div>
 
-        </div>
-        <div class="col-md-7" id="disk">
-            <div class="row tips">
-                <label>服务器状态</label>
             </div>
-            <div class="row1 row">
-                <div class="col-md-4">
-                    CPU使用率:&nbsp&nbsp&nbsp&nbsp<label class="disk-info" id="cpu">获取中...</label>
-                </div>
-                <div class="col-md-8">
-                    内存使用率:&nbsp&nbsp&nbsp<label class="disk-info" id="memory">获取中...</label>
-                </div>
+            <div class="row" id="save">
+                <input type="submit" value="保存" class="btn btn-primary" >
             </div>
-            <div class="row1 row">
-                <div class="col-md-11">
-                    磁盘剩余空间:&nbsp<label class="disk-info" id="space">获取中...</label>
-                    <span id="warntip" style="display:inline;">磁盘剩余空间不足</span>
-                </div>
-            </div>
-        </div>
-    </div>
+        </form>
 
 
 

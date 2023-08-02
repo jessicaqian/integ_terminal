@@ -92,7 +92,7 @@ input.single_line{
 }
 
 div.modal-dialog{
-    margin-top: 120px;
+    top:50%;
 }
 
 div.tips{
@@ -179,4 +179,67 @@ span.warning{
 
 div.col-no-leftpad{
     padding-left: 0;
+}
+
+div#authen{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1080;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+span.glyphicon-exclamation-sign{
+    color: red;
+}
+
+div#min_dialog_body{
+    text-align: center;
+    font-size: 15px;
+
+}
+
+div#min_dialog{
+    margin-top: -54px;
+
+}
+
+div#authModal{
+
+
+}
+
+input#modalsubmit{
+    margin-left: 500px;
+}
+
+.fright{
+    text-align: right;
+}
+
+.dinput{
+    width: 70%;
+}
+
+div#lg_dialog{
+    margin-top: -135px;
+}
+
+div#ca_dialog{
+    margin-top: -173px;
+}
+
+div#Usr_dialog{
+    margin-top: -198px;
+}
+
+div#e_tip{
+    text-align: center;
+    color: red;
+    visibility:hidden
 }

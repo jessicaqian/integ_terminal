@@ -15,16 +15,203 @@
     <script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
 </head>
 <body>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+
+<!-- subModal -->
+<div class="modal fade" tabindex="-1" role="dialog"  id="usbModal">
+    <div class="modal-dialog" role="document" id="min_dialog">
         <div class="modal-content">
-            {% block modal-content %}{% endblock %}
+            <div class="modal-header">
+                <h4 class="modal-title">USB提示</h4>
+            </div>
+            <div class="modal-body" id="min_dialog_body">
+                <span class=" glyphicon glyphicon-exclamation-sign"></span>
+                USBkey未插入
+            </div>
         </div>
     </div>
 </div>
 
+<!-- authModal -->
+<div class="modal fade" tabindex="-1" role="dialog"  id="authModal">
+    <div class="modal-dialog" role="document" id="lg_dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">双向认证</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>认证服务器IP:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input class="dinput" required>
+                        </div>
 
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>认证服务器端口:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>设备PIN码:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                    </div>
+                    <div class="row" id="e_tip">
+                        双向认证失败，PIN码错误，USBKey的PIN码剩余重试次数：
+                    </div>
+                    <div>
+                        <input type="submit" value="确定" class="btn btn-primary" id="modalsubmit" >
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CAIdentifyModal -->
+<div class="modal fade" tabindex="-1" role="dialog"  id="CAModal">
+    <div class="modal-dialog" role="document" id="ca_dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">身份鉴别</h4>
+            </div>
+            <div class="modal-body" >
+                <form>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <label>终端身份鉴别:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input class="dinput" disabled value="USBKey+PIN码">
+                        </div>
+
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>服务器地址:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>端口号:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>用户PIN码:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                    </div>
+                    <div class="row" id="e_tip">
+                        双向认证失败，PIN码错误，USBKey的PIN码剩余重试次数：
+                    </div>
+                    <div>
+                        <input type="submit" value="确定" class="btn btn-primary" id="modalsubmit" >
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- UsrIdentifyModal -->
+<div class="modal fade" tabindex="-1" role="dialog"  id="UsrModal">
+    <div class="modal-dialog" role="document" id="Usr_dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" >身份鉴别</h4>
+            </div>
+            <div class="modal-body" >
+                <form>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <label>终端身份鉴别:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input class="dinput" disabled value="用户名+密码">
+                        </div>
+
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>服务器地址:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>端口号:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                    </div>
+                    <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>用户账号:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                    </div>
+
+                   <div class="row sparse">
+                        <div class="col-md-4 fright">
+                            <span class="warning">*</span>
+                            <label>用户密码:</label>
+                        </div>
+                         <div class="col-md-8">
+                             <input  class="dinput" required>
+                        </div>
+                   </div>
+                    <div class="row" id="e_tip">
+                        双向认证失败，PIN码错误，USBKey的PIN码剩余重试次数：
+                    </div>
+                    <div>
+                        <input type="submit" value="确定" class="btn btn-primary" id="modalsubmit" >
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="row" id="main">
@@ -106,7 +293,65 @@
 
 {% block js %}{% endblock %}
 <script type="text/javascript">
+    $('#usbModal').modal({backdrop: 'static', keyboard: false});
+    $('#authModal').modal({backdrop: 'static', keyboard: false});
+    $('#CAModal').modal({backdrop: 'static', keyboard: false});
+    $('#USrModal').modal({backdrop: 'static', keyboard: false});
+    $('#CAModal').modal('hide');
+    $('#usbModal').modal('hide');
+    $('#authModal').modal('hide');
+    $('#UsrModal').modal('hide');
+    getstatus()
+    function getstatus(){
+        $.ajax({
+            type: 'GET',
+            dataType:'json',
+            url: 'checkstatus',
+            timeout: 5000,
 
+
+            success: function(result) {
+                console.log(result.msg)
+                switch (result.msg) {
+                    case 'authentication':
+                        $('#UsrModal').modal('hide');
+                        $('#usbModal').modal('hide');
+                        $('#CAModal').modal('hide');
+                        $('#authModal').modal('show');
+                        break;
+                    case 'usb':
+                        $('#UsrModal').modal('hide');
+                        $('#authModal').modal('hide');
+                        $('#CAModal').modal('hide');
+                        $('#usbModal').modal('show');
+                        break;
+                    case 'CA':
+                        $('#UsrModal').modal('hide');
+                        $('#authModal').modal('hide');
+                        $('#usbModal').modal('hide');
+                        $('#CAModal').modal('show');
+                         break;
+                    case 'Usr':
+                        $('#authModal').modal('hide');
+                        $('#usbModal').modal('hide');
+                        $('#CAModal').modal('hide');
+                        $('#UsrModal').modal('show');
+                         break;
+                    default:
+                        break
+
+                }
+
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log(textStatus)
+
+            }
+
+
+        })
+    }
+    setInterval(getstatus,2000)
 </script>
 </body>
 </html>

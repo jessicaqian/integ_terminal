@@ -14,3 +14,11 @@ a#time{
     color: white;
     background-color:#25425f ;
 }
+
+#save{
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+
+}

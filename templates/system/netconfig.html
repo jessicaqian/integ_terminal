@@ -10,64 +10,124 @@
 
 {% block content %}
     <div class="row sparse"><label class="head">网络配置&nbsp&nbsp&nbsp&nbsp</label></div>
+    <form>
+        <div class="row">
+            <div class="col-md-6 col-no-leftpad">
+                <div class="row tips">
+                    <label>LAN1</label>
+                </div>
+                <div class="row1 row" >
+                    <div class="col-md-2" >
+                        <label>开启网口</label>
+                    </div>
+                    <div class="col-md-1 NormalClass">
 
-    <div class="row" id="system">
-        <form>
-            <div class="row tips">
-                <label>LAN1</label>
+                        {{ form.netswitch }}
+                    </div>
+                    <div class = "col-md-2">
+                        <label id="textin" class="off">关闭</label>
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.adress.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.adress }}
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.mask.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.mask }}
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.gateway.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.gateway }}
+                    </div>
+                </div>
             </div>
-            <div class="row1 row" >
-                <div class="col-md-1" >
-                    <label>开启网口</label>
+            <div class="col-md-6 ">
+                <div class="row tips">
+                    <label>H.323</label>
                 </div>
-                <div class="col-md-1 NormalClass">
+                <div class="row1 row" >
+                    <div class="col-md-2" >
+                        <label>注册GK</label>
+                    </div>
+                    <div class="col-md-1" id="GK">
 
-                    {{ form.netswitch }}
+                        {{ form.GKswitch }}
+                    </div>
+                    <div class = "col-md-2">
+                        <label >开启</label>
+                    </div>
                 </div>
-                <div class = "col-md-2">
-                    <label id="textin" class="off">关闭</label>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.GKadress.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.GKadress }}
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.num.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.num }}
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.authname.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.authname }}
+                    </div>
+                </div>
+                <div class="row1 row">
+                    <div class="col-md-2">
+                        <span class="warning">*</span>
+                        {{ form.authpw.label_tag }}
+
+                    </div>
+                    <div class="col-md-9 col-no-leftpad">
+
+                        {{ form.authpw }}
+                    </div>
                 </div>
             </div>
-            <div class="row1 row">
-                <div class="col-md-1">
-                    <span class="warning">*</span>
-                    {{ form.adress.label_tag }}
-
-                </div>
-                <div class="col-md-5 col-no-leftpad">
-
-                    {{ form.adress }}
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-1">
-                    <span class="warning">*</span>
-                    {{ form.mask.label_tag }}
-
-                </div>
-                <div class="col-md-5 col-no-leftpad">
-
-                    {{ form.mask }}
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-1">
-                    <span class="warning">*</span>
-                    {{ form.gateway.label_tag }}
-
-                </div>
-                <div class="col-md-5 col-no-leftpad">
-
-                    {{ form.gateway }}
-                </div>
-            </div>
-            <div class="row" id="save">
-                <input type="submit" value="保存" class="btn btn-primary" >
-            </div>
-        </form>
-    </div>
-
-
+        </div>
+        <div class="row" id="save">
+            <input type="submit" value="保存" class="btn btn-primary" >
+        </div>
+    </form>
 
 {% endblock %}
 

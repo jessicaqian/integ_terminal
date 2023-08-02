@@ -3,9 +3,14 @@ from .forms import MeetForm,MeetParameterForm,NetConfigForm,UIdisplayForm
 from django.http import JsonResponse
 import requests
 import json
-
+import datetime
 
 # Create your views here.
+
+status_dict = {
+    'usb':'none',
+
+}
 def main(request):
     if request.method == 'POST':
         pass
@@ -59,8 +64,11 @@ def time(request):
         pass
 
     else:
+        now = datetime.datetime.now()
+        time = now.strftime("%Y-%m-%dT%H:%M:%S")
+        print(time)
 
-        return render(request, 'system/time.html', {})
+        return render(request, 'system/time.html', {'time':time})
 
 def secure(request):
     if request.method == 'POST':
@@ -112,14 +120,19 @@ def sysUpdate(request):
         return render(request, 'system/sysupdate.html', {})
 
 
-def test(request):
+def notify(request):
     if request.method == 'POST':
-        data = request.POST['IntegratedTerminal']
+        # data = request.POST['IntegratedTerminal']
+        data = request.body
+        print(data)
         val = json.loads(data)
 
-        print(val['method'])
-        print(val['data']['message'])
+        # print(val['method'])
+        # print(val['data']['message'])
+
+        status_dict['usb'] = val['method']
         return JsonResponse({'code': 200})
+
     else:
 
         try:
@@ -130,3 +143,8 @@ def test(request):
         except Exception as e:
             print(e)
         return JsonResponse({'code': 200})
+
+def checkStatus(request):
+
+    return JsonResponse({'msg': status_dict['usb']})
+

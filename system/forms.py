@@ -64,11 +64,16 @@ class NetConfigForm(forms.Form):
     adress = forms.CharField(widget=forms.TextInput, required=True, label='IPv4地址')
     mask = forms.CharField(widget=forms.TextInput, required=True, label='子网掩码')
     gateway = forms.CharField(widget=forms.TextInput, required=True, label='IPv4网关')
+    GKswitch = forms.CharField(widget=forms.TextInput(attrs={'type': 'button','disabled':'disabled'}))
+    GKadress = forms.CharField(widget=forms.TextInput(attrs={'disabled': 'disabled'}), required=True, label='GK地址')
+    num = forms.CharField(widget=forms.TextInput(attrs={'disabled': 'disabled'}), required=True, label='注册号码')
+    authname = forms.CharField(widget=forms.TextInput(attrs={'disabled': 'disabled'}), required=True, label='认证名称')
+    authpw = forms.CharField(widget=forms.PasswordInput(attrs={'disabled': 'disabled'}), required=True, label='认证密码')
 
 class UIdisplayForm(forms.Form):
 
 
     UIswitch = forms.CharField(widget=forms.TextInput(attrs={'type':'button'}))
     roomname = forms.CharField(widget=forms.TextInput, required=True, label='会场名')
-    roomlevel = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}), required=True, label='会场密级')
+    roomlevel = forms.CharField(widget=forms.TextInput(attrs={'disabled':'disabled'}), required=True, label='会场密级')
 

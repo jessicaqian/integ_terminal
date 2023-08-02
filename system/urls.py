@@ -16,5 +16,6 @@ urlpatterns = [
     path('interfaceControl.html', views.interfaceControl),
     path('sysupdate.html', views.sysUpdate),
     path('sysdiagnosis.html',views.sysdiagnosis),
-    path('test', views.test),
+    path('notify', views.notify),
+    path('checkstatus', views.checkStatus),
 ]
