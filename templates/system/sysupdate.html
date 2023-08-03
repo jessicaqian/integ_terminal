@@ -10,45 +10,33 @@
 
 {% block content %}
     <div class="row sparse"><label class="head">系统更新&nbsp&nbsp&nbsp&nbsp</label></div>
-    <div class="row" id="system">
-        <div class="col-md-5" >
-            <div class="row tips">
-                <label>系统状态</label>
-            </div>
-            <div class="row1 row" >
-                <div class="col-md-12">
-                    当前存储音频格式:<label id="a_mode">{{ type }}</label>
 
+        <div class="row">
+            <div class="col-md-6 col-no-leftpad">
+                <div class="row tips">
+                    <label>系统升级</label>
+                </div>
+                <div class="row sparse">
+                    <span class="infotitle">License文件导入</span>
+                    <button class="btn btn-default">升级</button>
+                </div>
+                <div class="row sparse">
+                    <span class="infotitle">WEB导入升级</span>&nbsp&nbsp&nbsp&nbsp
+                    <button class="btn btn-default">升级</button>
                 </div>
             </div>
-            <div class="row1 row">
-                <div class="col-md-12">
-                    当前用户:<label>{{ name }}:{{ permiss }}</label>
-
+            <div class="col-md-6 ">
+                <div class="row tips">
+                    <label>系统设置</label>
                 </div>
-            </div>
-
-        </div>
-        <div class="col-md-7" id="disk">
-            <div class="row tips">
-                <label>服务器状态</label>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-4">
-                    CPU使用率:&nbsp&nbsp&nbsp&nbsp<label class="disk-info" id="cpu">获取中...</label>
-                </div>
-                <div class="col-md-8">
-                    内存使用率:&nbsp&nbsp&nbsp<label class="disk-info" id="memory">获取中...</label>
-                </div>
-            </div>
-            <div class="row1 row">
-                <div class="col-md-11">
-                    磁盘剩余空间:&nbsp<label class="disk-info" id="space">获取中...</label>
-                    <span id="warntip" style="display:inline;">磁盘剩余空间不足</span>
+                <div class="row sparse">
+                    <span class="infotitle">恢复出厂设置</span>
+                    <button class="btn" id="reset">恢复</button>
                 </div>
             </div>
         </div>
-    </div>
+
+
 
 
 

@@ -13,3 +13,12 @@ a#sysdiagnosis{
     color: white;
     background-color:#25425f ;
 }
+
+#loopback{
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.btn-default{
+    margin-left: 20px;
+}

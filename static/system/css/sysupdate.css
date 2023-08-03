@@ -13,3 +13,27 @@ a#sysupdate{
     color: white;
     background-color:#25425f ;
 }
+
+.infotitle{
+    margin-left: 65px;
+    font-size: 15px;
+}
+
+.btn-default{
+    width: 100px;
+    margin-left: 20px;
+}
+
+button#reset{
+    width: 100px;
+    margin-left: 20px;
+    border: solid #e21610 1px;
+    background-color: white;
+    color: #e21610;
+}
+
+button#reset:hover{
+
+    background-color:#e21610;
+    color: white;
+}
