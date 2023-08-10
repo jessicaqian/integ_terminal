@@ -5,12 +5,17 @@ import requests
 import json
 import datetime
 
+
+
 # Create your views here.
 
 status_dict = {
     'usb':'none',
 
 }
+
+
+
 def main(request):
     if request.method == 'POST':
         pass

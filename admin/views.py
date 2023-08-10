@@ -1,4 +1,3 @@
-
 import configparser
 import datetime
 
@@ -17,7 +16,7 @@ def login(request):
         if form.is_valid():
             info = form.cleaned_data
             timenow = datetime.datetime.now()
-            T_Now = timenow.minute*60 + timenow.hour * 60*60 + timenow.second
+            T_Now = timenow.minute*60 + timenow.hour * 60*60 + timenow.second 
             usrname = info['usrname']
             config = configparser.ConfigParser()
             config.read("conf/admin.ini",encoding='utf-8-sig')
